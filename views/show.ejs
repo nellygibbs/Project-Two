@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View a Date</title>
+</head>
+
+<body>
+    <h1>Details for date at <%= date.location %></h1>
+    <p>Cost: <%= date.cost %></p>
+    <% if(date.completed) { %>
+            <p>You already went here</p>
+        <% } else { %>
+            <p>You haven't been here yet..</p>
+    <% } %>
+    <a href="/dates">Back to Date Wishlist</a>
+</body>
+</html>

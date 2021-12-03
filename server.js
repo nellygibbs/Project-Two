@@ -1,7 +1,7 @@
 // Require Dependencies
 const express = require('express');
 const mongoose = require('mongoose');
-
+const Date = require('./models/date.js');
 
 
 // Initialize App
@@ -23,6 +23,48 @@ db.on('error', (err) => console.log('MongoDB Error: ' + err.message));
 app.use(express.urlencoded({ extended: false })); 
 
 // Mount Routes
+
+// Seed Route
+app.get('/dates/seed', async (req, res) => {
+    const data = [
+        {
+            location: 'Area 53',
+            cost: '54 per ticket'
+        },
+        {
+            location: 'South Mountain Resort',
+            cost: 'Free'
+        },
+        {
+            location: 'Tao Downtown',
+            cost: 'Around 80 per person'
+        }, 
+    ]
+    await Date.create(data, () => {
+           res.redirect('dates');
+       });    
+});
+
+
+// Index
+app.get('/dates', (req, res) => {
+    Date.find({}, (err, dates) => {
+        res.render('index.ejs', { dates });
+    });
+})
+
+// New Route
+app.get('/dates/new', (req, res) => {
+    res.render('new.ejs'); //npm i ejs
+});
+
+// // Delete Route
+// app.delete('/dates/:id', (req, res) => {
+//     Date.findByIdAndRemove(req.params.id, (err, deletedDate) => {
+//         res.redirect('/dates');
+//     });
+// });
+
 // Create
 app.post('/dates', (req, res) => {
     if(req.body.completed === 'on') {
@@ -30,8 +72,17 @@ app.post('/dates', (req, res) => {
     } else {
         req.body.completed = false
     }
-    res.send(req.body);
-})
+    Date.create(req.body, (error, createdDate) => {
+        res.redirect('/dates');
+    });
+});
+
+// // Show Route
+// app.get('/dates/:id', (req, res) => {
+//     Date.findById(req.params.id, (err, date) => {
+//         res.render('show.ejs', { date });
+//     });
+// });
 
 
 
