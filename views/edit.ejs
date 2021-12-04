@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Date Page</title>
+</head>
+<body>
+    <h1>Change a Date on Your Wishlist Below:</h1>
+    
+    <form action="/dates/<%= date._id %>?_method=PUT" method="POST">
+        Location: <input type="text" name="location" value="<%= date.location %>"/>
+        Image: <img src="<%= date.img %>"/>
+        Cost: <input type="text" name="cost" value="<%= date.cost %>">
+        Completed: <input type="checkbox" name ="completed" 
+        <% if(date.completed) { %> checked <% } %> />
+        <input type="submit" value="Update Date">    
+    </form>   
+</body>
+</html>

@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Date = require('./models/date.js');
 const methodOverride = require('method-override');
+const bookSeed = require('./models/dateSeed');
 
 
 // Initialize App
@@ -27,26 +28,12 @@ app.use(methodOverride('_method'));
 // Mount Routes
 
 // Seed Route
-// app.get('/dates/seed', async (req, res) => {
-//     const data = [
-//         {
-//             location: 'Area 53',
-//             cost: '54 per ticket'
-//         },
-//         {
-//             location: 'South Mountain Resort',
-//             cost: 'Free'
-//         },
-//         {
-//             location: 'Tao Downtown',
-//             cost: 'Around 80 per person'
-//         }, 
-//     ]
-//     await Book.deleteMany({});
-//     await Date.create(data, () => {
-//            res.redirect('dates');
-//        });    
-// });
+app.get('/dates/seed', (req, res) => {
+    Date.deleteMany({}, (error, allDates) => {})
+    Date.create(dateSeed, (error, data) => {
+        res.redirect('/dates'); 
+    });                 
+});
 
 
 // Index
@@ -54,7 +41,7 @@ app.get('/dates', (req, res) => {
     Date.find({}, (err, dates) => {
         res.render('index.ejs', { dates });
     });
-})
+});
 
 // New Route
 app.get('/dates/new', (req, res) => {
@@ -70,7 +57,17 @@ app.delete('/dates/:id', (req, res) => {
 
 
 // Update Route
-
+app.put('/dates/:id', (req, res) => {
+    req.body.completed = !!req.body.completed; //will turn req.body into a boolean
+    Date.findByIdAndUpdate(
+        req.params.id, 
+        req.body, 
+        { new: true}, 
+        (err, updatedDate) => {
+            res.redirect('/dates')
+            //res.redirect('/dates/' + req.params.id) to send user back to show route
+    });
+});
 
 // Create
 app.post('/dates', (req, res) => {
@@ -97,7 +94,6 @@ app.get('/dates/:id', (req, res) => {
         res.render('show.ejs', { date });
     });
 });
-
 
 
 // Tell App to Listen

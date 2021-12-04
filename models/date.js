@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const dateSchema = new Schema({
     location: { type: String, required: true },
     img: String,
-    cost: Number,
+    cost: String,
     completed: Boolean
 }, {timestamps: true});
 

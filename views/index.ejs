@@ -11,7 +11,7 @@
     <ul>
         <% dates.forEach(date => { %>
             <li>
-                <a href="/dates/<%date._id %>">
+                <a href="/dates/<%= date._id %>">
                     <span><%= date.location %></span><br></a> 
                     <span><img src="<%= date.img %>"/></span><br>
                 <form action="/dates/<%= date._id %>?_method=DELETE" method="POST">
