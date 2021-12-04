@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Date = require('./models/date.js');
+const methodOverride = require('method-override');
 
 
 // Initialize App
@@ -21,29 +22,31 @@ db.on('error', (err) => console.log('MongoDB Error: ' + err.message));
 
 // Mount Middleware
 app.use(express.urlencoded({ extended: false })); 
+app.use(methodOverride('_method'));
 
 // Mount Routes
 
 // Seed Route
-app.get('/dates/seed', async (req, res) => {
-    const data = [
-        {
-            location: 'Area 53',
-            cost: '54 per ticket'
-        },
-        {
-            location: 'South Mountain Resort',
-            cost: 'Free'
-        },
-        {
-            location: 'Tao Downtown',
-            cost: 'Around 80 per person'
-        }, 
-    ]
-    await Date.create(data, () => {
-           res.redirect('dates');
-       });    
-});
+// app.get('/dates/seed', async (req, res) => {
+//     const data = [
+//         {
+//             location: 'Area 53',
+//             cost: '54 per ticket'
+//         },
+//         {
+//             location: 'South Mountain Resort',
+//             cost: 'Free'
+//         },
+//         {
+//             location: 'Tao Downtown',
+//             cost: 'Around 80 per person'
+//         }, 
+//     ]
+//     await Book.deleteMany({});
+//     await Date.create(data, () => {
+//            res.redirect('dates');
+//        });    
+// });
 
 
 // Index
@@ -59,11 +62,15 @@ app.get('/dates/new', (req, res) => {
 });
 
 // // Delete Route
-// app.delete('/dates/:id', (req, res) => {
-//     Date.findByIdAndRemove(req.params.id, (err, deletedDate) => {
-//         res.redirect('/dates');
-//     });
-// });
+app.delete('/dates/:id', (req, res) => {
+    Date.findByIdAndDelete(req.params.id, (err, deletedDate) => {
+        res.redirect('/dates');
+    });
+});
+
+
+// Update Route
+
 
 // Create
 app.post('/dates', (req, res) => {
@@ -77,12 +84,19 @@ app.post('/dates', (req, res) => {
     });
 });
 
-// // Show Route
-// app.get('/dates/:id', (req, res) => {
-//     Date.findById(req.params.id, (err, date) => {
-//         res.render('show.ejs', { date });
-//     });
-// });
+// Edit Route
+app.get('/dates/:id/edit', (req, res) => {
+    Date.findById(req.params.id, (err, foundDate) => {
+        res.render('edit.ejs', { date: foundDate});
+    });   
+});
+
+// Show Route
+app.get('/dates/:id', (req, res) => {
+    Date.findById(req.params.id, (err, date) => {
+        res.render('show.ejs', { date });
+    });
+});
 
 
 

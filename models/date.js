@@ -7,7 +7,7 @@ const dateSchema = new Schema({
     location: { type: String, required: true },
     img: String,
     cost: Number,
-    completed: { Boolean, default: false }
+    completed: Boolean
 }, {timestamps: true});
 
 // Export the model to be accessed in server.js
