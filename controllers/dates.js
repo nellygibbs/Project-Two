@@ -1,14 +1,15 @@
 // Require dependencies
 const express = require('express');
+const Date = require('../models/date');
+const dateSeed = require('../models/dateSeed');
 
 // Create Router Object
-const datesRouter = express.Router();
-
-const Date = require('../models/date');
+const datesRouter = express.Router(); 
 
 // List Router Actions
 // Seed Route
-datesRouter.get('/dates/seed', (req, res) => {
+
+datesRouter.get('/seed', (req, res) => {
     Date.deleteMany({}, (error, allDates) => {})
     Date.create(dateSeed, (error, data) => {
         res.redirect('/dates'); 
@@ -16,26 +17,26 @@ datesRouter.get('/dates/seed', (req, res) => {
 });
 
 // Index Route
-datesRouter.get('/dates', (req, res) => {
+datesRouter.get('/', (req, res) => {
     Date.find({}, (err, dates) => {
         res.render('index.ejs', { dates });
     });
 });
 
 // New Route
-datesRouter.get('/dates/new', (req, res) => {
+datesRouter.get('/new', (req, res) => {
     res.render('new.ejs'); //npm i ejs
 });
 
 // Delete Route
-datesRouter.delete('/dates/:id', (req, res) => {
+datesRouter.delete('/:id', (req, res) => {
     Date.findByIdAndDelete(req.params.id, (err, deletedDate) => {
         res.redirect('/dates');
     });
 });
 
 // Update Route
-datesRouter.put('/dates/:id', (req, res) => {
+datesRouter.put('/:id', (req, res) => {
     req.body.completed = !!req.body.completed; //will turn req.body into a boolean
     Date.findByIdAndUpdate(
         req.params.id, 
@@ -47,7 +48,7 @@ datesRouter.put('/dates/:id', (req, res) => {
 });
 
 // Create Route
-datesRouter.post('/dates', (req, res) => {
+datesRouter.post('/', (req, res) => {
     if(req.body.completed === 'on') {
         req.body.completed = true
     } else {
@@ -59,14 +60,14 @@ datesRouter.post('/dates', (req, res) => {
 });
 
 // Edit Route
-datesRouter.get('/dates/:id/edit', (req, res) => {
+datesRouter.get('/:id/edit', (req, res) => {
     Date.findById(req.params.id, (err, foundDate) => {
         res.render('edit.ejs', { date: foundDate});
     });   
 });
 
 // Show Route
-datesRouter.get('/dates/:id', (req, res) => {
+datesRouter.get('/:id', (req, res) => {
     Date.findById(req.params.id, (err, date) => {
         res.render('show.ejs', { date });
     });

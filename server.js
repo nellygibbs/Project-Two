@@ -2,7 +2,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const dateSeed = require('./models/dateSeed');
 const datesRouter = require('./controllers/dates');
 
 
@@ -26,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 // Mount Routes
-app.use('/', datesRouter);
+app.use('/dates', datesRouter);
 
 // Tell App to Listen
 const PORT = process.env.PORT
