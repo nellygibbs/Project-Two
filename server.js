@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 // Mount Routes
-
+app.use('/', datesRouter);
 
 // Tell App to Listen
 const PORT = process.env.PORT
