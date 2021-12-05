@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Date = require('./models/date.js');
 const methodOverride = require('method-override');
-const bookSeed = require('./models/dateSeed');
+const dateSeed = require('./models/dateSeed');
 
 
 // Initialize App
@@ -65,7 +65,6 @@ app.put('/dates/:id', (req, res) => {
         { new: true}, 
         (err, updatedDate) => {
             res.redirect('/dates')
-            //res.redirect('/dates/' + req.params.id) to send user back to show route
     });
 });
 
