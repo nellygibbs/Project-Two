@@ -2,7 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const datesRouter = require('./controllers/dates');
+const datesController = require('./controllers/dates');
 
 
 // Initialize App
@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 // Mount Routes
-app.use('/dates', datesRouter);
+app.use('/dates', datesController);
 
 // Tell App to Listen
 const PORT = process.env.PORT
