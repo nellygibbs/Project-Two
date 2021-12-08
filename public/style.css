@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    color: yellow;
+    text-align: center;
+}
+
+.btn {
+    background-color: yellow;
+    border-radius: 8px;
+    border: 2px solid navy;
+}
+
+.index-body {
+    background-image: url("https://i.imgur.com/5BC91E6.jpg");
+    background-color: rgb(218, 209, 209);
+    text-align: center;
+}
+
+.ul {
+    list-style-type: none;
+}
+
+img {
+    height: 20rem;
+    width: 35rem;
+    border-radius: 8px;
+    border: 2px solid navy;
+}
+
+.name {
+    color: navy;
+}

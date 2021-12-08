@@ -23,7 +23,7 @@ module.exports = [
         completed: true,       
     }, 
     {
-        location: 'New Flix and Chill',
+        location: 'Netflix and Chill',
         img: 'https://i.imgur.com/VsdBG6Z.jpg',
         cost: '8.99 per month',
         completed: true,

@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Date Night Wishlist</title>
 </head>
-<body>
-    <h1>Date Night Wishlist</h1>
+<body class="index-body">
+    <h1 class="h1">Date Night Wishlist</h1>
     <ul class="ul">
         <% dates.forEach(date => { %>
-            <li>
-                <a href="/dates/<%= date._id %>">
-                    <span><%= date.location %></span><br></a> 
-                    <span><img src="<%= date.img %>"/></span><br>
+            <li class="li">
+                <a href="/dates/<%= date._id %>" class="name">
+                    <%= date.location %><br></a> 
+                    <span class="img"><img src="<%= date.img %>"/></span><br>
                 <form action="/dates/<%= date._id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="delete">
+                    <input type="submit" class="btn" value="delete">
                 </form>
                 <a href="/dates/<%= date._id %>/edit">Want to make changes?</a>
 

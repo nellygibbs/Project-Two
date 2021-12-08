@@ -23,6 +23,7 @@ db.on('error', (err) => console.log('MongoDB Error: ' + err.message));
 // Mount Middleware
 app.use(express.urlencoded({ extended: false })); 
 app.use(methodOverride('_method'));
+app.use(express.static('public'));
 
 // Mount Routes
 app.use('/dates', datesController);
