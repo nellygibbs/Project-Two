@@ -6,6 +6,12 @@ This app is the perfect ledger for you to keep track of ideas and locations for 
 Screenshots:
 ![](https://i.imgur.com/O3pw5gY.png)
 
+![](https://i.imgur.com/58SnHAg.png)
+
+![](https://i.imgur.com/I3ZQoSK.png)
+
+![](https://i.imgur.com/97f0Ovb.png)
+
 
 
 Technologies used:
