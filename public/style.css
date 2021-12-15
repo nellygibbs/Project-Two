@@ -3,19 +3,24 @@
 }
 
 .head {
-    color: rgb(92, 92, 89);
+    color: rgb(231, 232, 242);
     text-align: center;
-    font: anton;
+    font: 
+    text-shadow: 2px, 2px rgb(231, 232, 242);
 }
 
 .btn {
-    background-color: yellow;
+    background-color: rgb(231, 232, 242);
     border-radius: 8px;
-    border: 2px solid rgb(16, 22, 87);;
+    border: 2px solid rgb(231, 232, 242);
+    color: rgb(240, 6, 127);
+    opacity: 0.5;
+    box-shadow: 0 14px 20px;
+    font-weight: bold;
 }
 
 .index-body {
-    background-image: url("https://i.imgur.com/QNnaBU4.jpg?2");
+    background-image: url("https://i.imgur.com/jo1hAQ7.jpg");
     /* background-repeat: no-repeat;
     background-position: center;
     background-size: cover; */
@@ -31,18 +36,36 @@
 }
 
 li a:hover {
-    background-color: paleturquoise;
+    background-color: rgb(240, 6, 127);
 }
 
 img {
     height: 20rem;
     width: 35rem;
-    border-radius: 8px;
-    border: 2px solid;
+    border-radius: 65%;
+    border: none;
+    box-shadow: 0 14px 20px;
 }
 
 .name {
-    color: navy;
+    padding: 10px;
+    color: rgb(240, 6, 127);
+    opacity: 0.5;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    box-shadow: 0 14px 20px;
+    font-weight: bold;
+}
+
+.change-btn {
+    padding: 10px;
+    color: rgb(240, 6, 127);
+    opacity: 0.5;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-weight: bold;
 }
 
 .li {
@@ -64,7 +87,7 @@ img {
 
 .new-body {
     /* background-color: rgb(222, 142, 169); */
-    background-image: url("https://i.imgur.com/QNnaBU4.jpg?2");
+    background-image: url("https://i.imgur.com/jo1hAQ7.jpg");
     /* height: 100%; */
     /* background-position: center; */
      /* background-size: center; */
@@ -87,4 +110,8 @@ img {
     border-radius: 8px;
 }
 
-/* edit page */
+/* show page */
+#show {
+    display: flex;
+
+}
