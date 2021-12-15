@@ -3,7 +3,7 @@
 }
 
 .head {
-    color: rgb(196, 198, 218);
+    color: rgb(92, 92, 89);
     text-align: center;
     font: anton;
 }
@@ -15,20 +15,30 @@
 }
 
 .index-body {
-    /* background-image: url("https://i.imgur.com/5BC91E6.jpg"); */
-    background-color: rgb(0, 0, 0);
+    background-image: url("https://i.imgur.com/QNnaBU4.jpg?2");
+    /* background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+    /* background-color: salmon; */
     text-align: center;
 }
 
 .ul {
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+li a:hover {
+    background-color: paleturquoise;
 }
 
 img {
     height: 20rem;
     width: 35rem;
     border-radius: 8px;
-    border: 2px solid navy;
+    border: 2px solid;
 }
 
 .name {
@@ -38,3 +48,43 @@ img {
 .li {
     display: block;
 }
+
+/* new page */
+#new {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin: 0 auto;
+    border: 2px solid rgb(92, 92, 89);
+    border-radius: 8px;
+    padding: 15px;
+    background-color: rgb(232, 197, 209);
+    box-shadow: 0 10px 20px ;
+}
+
+.new-body {
+    /* background-color: rgb(222, 142, 169); */
+    background-image: url("https://i.imgur.com/QNnaBU4.jpg?2");
+    /* height: 100%; */
+    /* background-position: center; */
+     /* background-size: center; */
+    color: rgb(92, 92, 89); 
+}
+
+#new>.submit-btn {
+    width: 30%;
+    margin: 0 auto;  
+}
+
+.submit-btn:hover {
+    background-color:rgb(216, 216, 213);
+}
+
+
+#new>.complete-btn {
+    background-color:rgb(92, 92, 89);
+    border: rgb(92, 92, 89);
+    border-radius: 8px;
+}
+
+/* edit page */
