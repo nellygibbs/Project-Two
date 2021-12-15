@@ -40,7 +40,8 @@ img {
     width: 35rem;
     border-radius: 65%;
     border: none;
-    box-shadow: 0 14px 20px;
+    box-shadow: 0 14px 60px rgb(82, 74, 80);
+    margin: auto;
 }
 
 /* Buttons */
@@ -118,19 +119,32 @@ img {
 }
 
 /* show page */
-#show-body {
+.show-body {
     background-image: url("https://i.imgur.com/jo1hAQ7.jpg");
 }
-#show {
+.show {
     list-style-type: none;
     display: flex;
     flex-direction: column;
     width: 45%;
     margin: 0 auto;
-    border: 2px solid rgb(92, 92, 89);
+    /* border: 2px solid rgb(92, 92, 89); */
     border-radius: 8px;
     padding: 15px;
     background-color: rgb(232, 197, 209);
     box-shadow: 0 10px 20px ;
-    color: rgb(92, 92, 89);
+    color: rgb(0, 0, 0);
+}
+
+.show-img {
+    margin: auto;
+}
+
+.cost {
+    margin: 2% auto;
+
+}
+
+.comp-logic {
+    margin: 2% auto;
 }

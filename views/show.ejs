@@ -11,16 +11,17 @@
 <body class="show-body">
     <h1>Details for date at <%= date.location %></h1>
     <div class="show-ul">
-        <ul class="show">
-            <li>Cost: <%= date.cost %></li>
-            <li><img src="<%= date.img %>"/></li>
+        <ul class="show">   
+            <li class="show-img"><img src="<%= date.img %>"/></li>
+            <li class="cost">Cost: <%= date.cost %></li>
             <% if(date.completed) { %>
-                    <li>You already went here</li>
+                    <li class="comp-logic">You already went here</li>
                 <% } else { %>
-                    <li>You haven't been here yet..</li>
+                    <li class="comp-logic">You haven't been here yet..</li>
             <% } %>
             <a href="/dates">Back to Date Wishlist</a>
        </ul>
     </div>
 </body>
 </html>
+
