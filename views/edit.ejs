@@ -10,7 +10,7 @@
 <body class="new-body">
     <h1>Change a Date on Your Wishlist Below</h1>
     
-    <form action="/dates/<%= date._id %>?_method=PUT" id="new" method="POST">
+    <form action="/dates/<%= date._id %>?_method=PUT" id="new-form" method="POST">
         Location: <input type="text" name="location" value="<%= date.location %>"/>
         Image: <img src="<%= date.img %>"/>
         Cost: <input type="text" name="cost" value="<%= date.cost %>">

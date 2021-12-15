@@ -8,18 +8,19 @@
     <title>View a Date</title>
 </head>
 
-<body class="new-body">
+<body class="show-body">
     <h1>Details for date at <%= date.location %></h1>
-    <div class="show">
-        <p>Cost: <%= date.cost %></p>
-        <p><img src="<%= date.img %>"/></p>
-        <% if(date.completed) { %>
-                <p>You already went here</p>
-            <% } else { %>
-                <p>You haven't been here yet..</p>
-        <% } %>
-        <a href="/dates">Back to Date Wishlist</a>
+    <div class="show-ul">
+        <ul class="show">
+            <li>Cost: <%= date.cost %></li>
+            <li><img src="<%= date.img %>"/></li>
+            <% if(date.completed) { %>
+                    <li>You already went here</li>
+                <% } else { %>
+                    <li>You haven't been here yet..</li>
+            <% } %>
+            <a href="/dates">Back to Date Wishlist</a>
+       </ul>
     </div>
-
 </body>
 </html>
